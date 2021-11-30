@@ -1,9 +1,7 @@
 import './main.css';
 import clearListContainer from './utils/clear-container.js';
 
-
 const listContainer = document.querySelector('[data-lists]');
-
 
 const todos = [
   {
