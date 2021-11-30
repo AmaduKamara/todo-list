@@ -44,7 +44,7 @@ I also dynamically modify the DOM and add basic events.
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
-Feel free to check the <a href="#">issues page</a>
+Feel free to check the <a href="https://github.com/AmaduKamara/todo-list/issues">issues page</a>
 
 ## Show your support
 
