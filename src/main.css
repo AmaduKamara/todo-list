@@ -1,5 +1,6 @@
 /* Open Sans - Google font importing */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
 /* Reset styles */
 * {
   margin: 0;
@@ -38,7 +39,7 @@ main {
   transform: translate(-50%, -50%);
   background-color: #fff;
   border-radius: 3px;
-  box-shadow: 0px 2px 8px rgb(0 0 0 / 15%);
+  box-shadow: 0 2px 8px rgb(0 0 0 / 15%);
 }
 
 .todo-wrapper::-webkit-scrollbar {
@@ -128,6 +129,7 @@ form button[type='submit'] {
 }
 
 .check-div {
+  /* stylelint-disable-next-line csstree/validator */
   display: hidden;
 }
 
@@ -144,7 +146,7 @@ span.check {
 }
 
 .view p {
-  color: #000000;
+  color: #000;
 }
 
 .clear-todos {

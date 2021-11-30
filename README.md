@@ -31,6 +31,14 @@ It simply lists the things that you need to do and allows you to mark them as co
 I achieve that by using JavaScript objects and arrays.
 I also dynamically modify the DOM and add basic events.
 
+## Using it Locally
+
+- Clone the project from GitHub <a href="https://github.com/AmaduKamara/todo-list.git">here<a/>
+- Run the following commands as listed in your terminal:
+- `npm install`
+- `npm run build`
+- `npm start` 
+
 ## Author:
 
 - Github: @<https://github.com/AmaduKamara>

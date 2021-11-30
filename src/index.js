@@ -1,13 +1,20 @@
 import _ from 'lodash';
 import './main.css';
 
-function component() {
-  const element = document.createElement('div');
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-  element.classList.add('hello');
-
-  return element;
-}
-
-document.body.appendChild(component());
+const todos = [
+  {
+    id: 1,
+    description: 'Join Morning session meeting at 8am Monday to Friday',
+    completed: false,
+  },
+  {
+    id: 2,
+    description: 'Join Collaborative session 1 at 9am',
+    completed: false,
+  },
+  {
+    id: 3,
+    description: 'Work on lessons and solo projects',
+    completed: false,
+  },
+];
