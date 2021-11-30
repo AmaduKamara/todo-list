@@ -4,9 +4,9 @@
 In this project, Ibuild a simple website that allows for doing that, and you will do it using ES6 and Webpack!
 I achieved that by using JavaScript arrays and objects. I also dynamically modify the DOM and add basic events.
 
-#### Desktop Screenshot
+## App Screenshot
 
-#### Mobile Screenshot
+<img src="./src/Todo-List.png">
 
 ## Built With
 
@@ -37,7 +37,7 @@ I also dynamically modify the DOM and add basic events.
 - Run the following commands as listed in your terminal:
 - `npm install`
 - `npm run build`
-- `npm start` 
+- `npm start`
 
 ## Author:
 
