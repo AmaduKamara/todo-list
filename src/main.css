@@ -129,8 +129,7 @@ form button[type='submit'] {
 }
 
 .check-div {
-  /* stylelint-disable-next-line csstree/validator */
-  display: hidden;
+  display: none;
 }
 
 span.check {
