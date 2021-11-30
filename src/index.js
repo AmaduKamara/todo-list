@@ -28,13 +28,18 @@ const todos = [
 
 const handleRender = () => {
   clearListContainer(listContainer);
+  // Looping through the list
   todos.forEach((todo) => {
     const listElement = document.createElement('li');
     listElement.classList.add('todo');
+
+    // Adding id to the listElement
+    // listElement.dataset.listId = list.id;
+
     listElement.innerHTML = `
       <div class="toggle">
-        <span class="material-icons box">check_box_outline_blank</span>
-        <div class="check-div">
+      <div class="check-div">
+      <span class="material-icons box">check_box_outline_blank</span>
           <span class="material-icons check">done</span>
         </div>
       </div>

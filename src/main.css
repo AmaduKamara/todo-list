@@ -128,11 +128,11 @@ form button[type='submit'] {
   padding: 15px;
 }
 
-.check-div {
-  display: none;
+.box {
+  display: block;
 }
 
-span.check {
+.check {
   width: 20px;
   color: #2a9d8f;
   display: none;
