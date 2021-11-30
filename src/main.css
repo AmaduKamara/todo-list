@@ -1,5 +1,5 @@
 /* Open Sans - Google font importing */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 /* Reset styles */
 * {
   margin: 0;
@@ -10,7 +10,7 @@
 /* Global Styles */
 body {
   background-color: #f6f6f6;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   text-align: center;
   font-weight: 300;
   font-size: 14px;
@@ -29,7 +29,7 @@ main {
 
 /* Todo Wrapper styles */
 .todo-wrapper {
-  width: 580px;
+  width: 500px;
   max-height: 660px;
   overflow-y: scroll;
   position: absolute;
@@ -95,7 +95,7 @@ form input:focus {
   outline: none;
 }
 
-form button[type="submit"] {
+form button[type='submit'] {
   border: none;
   background: none;
 }
@@ -165,4 +165,8 @@ span.check {
 .clear-todos button:hover {
   color: #525151;
   text-decoration: underline;
+}
+
+.todo span.move-icon {
+  cursor: all-scroll;
 }
