@@ -138,6 +138,10 @@ form button[type='submit'] {
   display: none;
 }
 
+.selected {
+  color: red;
+}
+
 .view {
   width: 90%;
   margin-left: 15px;
