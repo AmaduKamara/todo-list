@@ -101,22 +101,11 @@ form button[type='submit'] {
   background: none;
 }
 
-.material-icons,
-.enter-arrow {
-  color: #b3b3b3;
-  cursor: pointer;
-}
-
 /* Todo Lists Items */
 .todo-list {
   width: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.toggle {
-  display: flex;
-  justify-content: center;
 }
 
 .todo {
@@ -126,16 +115,6 @@ form button[type='submit'] {
   border-bottom: 1px solid #d8d8d8;
   padding: 15px 0;
   padding: 15px;
-}
-
-.box {
-  display: block;
-}
-
-.selected {
-  width: 20px;
-  color: #2a9d8f;
-  display: none;
 }
 
 .view {
@@ -176,4 +155,3 @@ form button[type='submit'] {
   text-decoration: line-through;
 }
 
-/* <span class="material-icons">${completeTask}</span> */
