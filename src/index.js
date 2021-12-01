@@ -5,19 +5,15 @@ const listContainer = document.querySelector('[data-lists]');
 const newTodoForm = document.querySelector('[data-new-todo-form]');
 const newTodoInput = document.querySelector('[data-new-todo-input]');
 
-const checkCompleBox = document.querySelector('.box');
-const unCheckComplete = document.querySelector('.check');
-
 const localStorageTodos = 'todo.lists';
-const localStorageSelectedTodo = 'todo.completedTodoId';
 
 const todos = JSON.parse(localStorage.getItem(localStorageTodos)) || [];
-const selectedTodoId = localStorage.getItem(localStorageSelectedTodo);
 
 const createList = (name) => ({
   id: Date.now().toString(),
   description: name,
   completed: false,
+  index: todos.length + 1,
 });
 
 const save = () => {
@@ -26,34 +22,61 @@ const save = () => {
 
 const handleRender = () => {
   clearListContainer(listContainer);
+
   // Looping through the list
   todos.forEach((todo) => {
     // Creating li element to be append to the listContainer
     const listElement = document.createElement('li');
     listElement.classList.add('todo');
+    listElement.setAttribute('data-todo-item', todo.id);
 
-    // Adding id to the listElement
-    listElement.dataset.listId = todo.id;
-
-    listElement.innerHTML = `
-      <div class="toggle">
-        <div class="check-div">
-          <span class="material-icons box">check_box_outline_blank</span>
-          <span class="material-icons check">done</span>
-        </div>
-        </div>
-        <div class="view">
-          <p>${todo.description}</p>
-        </div>
+    if (todo.completed) {
+      listElement.innerHTML = `
+      <div class="check-div">
+        <input type="checkbox" checked class="check-box" />
+      </div>
+      <div class="view">
+        <p class="todo-desc linethrough">${todo.description}</p>
+      </div>
       <span class="material-icons move-icon">more_vert</span>
     `;
-
-    if (todo.id === selectedTodoId) {
-      listElement.classList.add('selected');
+    } else {
+      listElement.innerHTML = `
+      <div class="check-div">
+        <input type="checkbox" class="check-box" />
+      </div>
+      <div class="view">
+        <p class="todo-desc">${todo.description}</p>
+      </div>
+      <span class="material-icons move-icon">more_vert</span>
+    `;
     }
-
     listContainer.appendChild(listElement);
   });
+
+  document.querySelectorAll('.check-box').forEach((check) => {
+    check.addEventListener('change', (e) => {
+      const todos = JSON.parse(localStorage.getItem(localStorageTodos));
+      const todoId = e.target.closest('li').dataset.todoItem;
+      const foundTodo = todos.find((todo) => todo.id === todoId);
+
+      if (foundTodo.completed) {
+        e.target.parentNode.nextSibling.nextElementSibling
+          .querySelector('.todo-desc')
+          .classList.remove('linethrough');
+        foundTodo.completed = false;
+      } else {
+        e.target.parentNode.nextSibling.nextElementSibling
+          .querySelector('.todo-desc')
+          .classList.add('linethrough');
+        foundTodo.completed = true;
+      }
+      const filteredTodo = todos.filter((todo) => todo.id !== todoId);
+      filteredTodo.splice(foundTodo.index - 1, 0, foundTodo);
+      localStorage.setItem(localStorageTodos, JSON.stringify(filteredTodo));
+    });
+  });
+  
 };
 
 const handleSaveAndRender = () => {

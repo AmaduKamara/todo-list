@@ -132,14 +132,10 @@ form button[type='submit'] {
   display: block;
 }
 
-.check {
+.selected {
   width: 20px;
   color: #2a9d8f;
   display: none;
-}
-
-.selected {
-  color: red;
 }
 
 .view {
@@ -175,3 +171,9 @@ form button[type='submit'] {
 .todo span.move-icon {
   cursor: all-scroll;
 }
+
+.linethrough {
+  text-decoration: line-through;
+}
+
+/* <span class="material-icons">${completeTask}</span> */
