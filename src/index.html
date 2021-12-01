@@ -21,11 +21,12 @@
         </div>
         <!-- Todo Form -->
         <div class="add-todo-form">
-          <form>
+          <form data-new-todo-form>
             <input
               type="text"
               placeholder="Add to your list..."
               id="new-todo"
+              data-new-todo-input
             />
             <button
               type="submit"
@@ -38,44 +39,7 @@
           </form>
         </div>
         <!-- Todo List -->
-        <ul class="todo-list" data-lists>
-          <li class="todo">
-            <div class="toggle">
-              <span class="material-icons box">check_box_outline_blank</span>
-              <div class="check-div">
-                <span class="material-icons check">done</span>
-              </div>
-            </div>
-            <div class="view">
-              <p>Join Morning session</p>
-            </div>
-            <span class="material-icons move-icon">more_vert</span>
-          </li>
-          <li class="todo">
-            <div class="toggle">
-              <span class="material-icons box">check_box_outline_blank</span>
-              <div class="check-div">
-                <span class="material-icons check">done</span>
-              </div>
-            </div>
-            <div class="view">
-              <p>Join Collaborative session 1 at 9am Monday to Friday</p>
-            </div>
-            <span class="material-icons move-icon">more_vert</span>
-          </li>
-          <li class="todo">
-            <div class="toggle">
-              <span class="material-icons box">check_box_outline_blank</span>
-              <div class="check-div">
-                <span class="material-icons check">done</span>
-              </div>
-            </div>
-            <div class="view">
-              <p>Work on solo projects</p>
-            </div>
-            <span class="material-icons move-icon">more_vert</span>
-          </li>
-        </ul>
+        <ul class="todo-list" data-lists></ul>
 
         <!-- Clear Todo List -->
         <div class="clear-todos">
