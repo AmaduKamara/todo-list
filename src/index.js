@@ -2,6 +2,7 @@ import './main.css';
 import clearListContainer from './utils/clear-container.js';
 import checkAndUncheckTodo from './utils/check-uncheck-todo.js';
 import clearAllCompletedTodos from './utils/clear-all-completed-todos.js';
+import editTodo from './utils/edit.js';
 
 // Get HTML elements
 const listContainer = document.querySelector('[data-lists]');
@@ -13,7 +14,7 @@ const clearButton = document.querySelector('[data-clear-all]');
 
 // Local storage data
 const localStorageTodos = 'todo.lists';
-let todos = JSON.parse(localStorage.getItem(localStorageTodos)) || [];
+const todos = JSON.parse(localStorage.getItem(localStorageTodos)) || [];
 
 const createList = (name) => ({
   id: Date.now().toString(),
@@ -44,7 +45,7 @@ const handleRender = () => {
         <input type="checkbox" checked class="check-box" />
       </div>
       <div class="view">
-        <input class="todo-desc linethrough" value="${todo.description}" />
+        <input class="todo-desc linethrough" value="${todo.description}" data-edited-todo id="${todo.id}"/>
       </div>
       <span class="material-icons move-icon">more_vert</span>
     `;
@@ -54,7 +55,7 @@ const handleRender = () => {
         <input type="checkbox" class="check-box" />
       </div>
       <div class="view">
-        <input class="todo-desc" value="${todo.description}"/>
+        <input class="todo-desc" value="${todo.description}" data-edited-todo id="${todo.id}"/>
       </div>
       <span class="material-icons move-icon">more_vert</span>
     `;
@@ -62,6 +63,8 @@ const handleRender = () => {
     listContainer.appendChild(listElement);
   });
   checkAndUncheckTodo(todos, localStorageTodos);
+
+  editTodo(localStorageTodos);
 };
 
 const handleSaveAndRender = () => {

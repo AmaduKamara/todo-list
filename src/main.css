@@ -126,6 +126,7 @@ form button[type='submit'] {
   color: #000;
   border: none;
   padding: 18px;
+  width: 100%;
 }
 
 .view input:focus {
