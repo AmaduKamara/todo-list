@@ -2,13 +2,17 @@ import './main.css';
 import clearListContainer from './utils/clear-container.js';
 import checkAndUncheckTodo from './utils/check-uncheck-todo.js';
 
+// Get HTML elements
 const listContainer = document.querySelector('[data-lists]');
 const newTodoForm = document.querySelector('[data-new-todo-form]');
 const newTodoInput = document.querySelector('[data-new-todo-input]');
 
-const localStorageTodos = 'todo.lists';
+// Get clear all completed button
+const clearButton = document.querySelector('[data-clear-all]');
 
-const todos = JSON.parse(localStorage.getItem(localStorageTodos)) || [];
+// Local storage data
+const localStorageTodos = 'todo.lists';
+let todos = JSON.parse(localStorage.getItem(localStorageTodos)) || [];
 
 const createList = (name) => ({
   id: Date.now().toString(),
@@ -23,6 +27,8 @@ const save = () => {
 
 const handleRender = () => {
   clearListContainer(listContainer);
+
+  const todos = JSON.parse(localStorage.getItem(localStorageTodos)) || [];
 
   // Looping through the list
   todos.forEach((todo) => {
@@ -70,6 +76,17 @@ newTodoForm.addEventListener('submit', (e) => {
   newTodoInput.value = null; // Reset the input field
   todos.push(list); // add the list to the todos array
   handleSaveAndRender();
+});
+
+// Clear all completed todos upon click
+clearButton.addEventListener('click', () => {
+  let localArr = JSON.parse(localStorage.getItem(localStorageTodos));
+
+  const pendingTodos = localArr.filter((todo) => todo.completed === false);
+
+  console.log(pendingTodos);
+  localStorage.setItem(localStorageTodos, JSON.stringify(pendingTodos));
+  handleRender();
 });
 
 handleRender();
