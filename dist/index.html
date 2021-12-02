@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <title>Amkam Todo List App Design</title>
+  <script defer src="main.js"></script></head>
+  <body>
+    <!-- Todo Header -->
+    <main>
+      <div class="todo-wrapper">
+        <div class="todo-header">
+          <h2>Today's To-do</h2>
+          <span class="material-icons">autorenew</span>
+        </div>
+        <!-- Todo Form -->
+        <div class="add-todo-form">
+          <form data-new-todo-form>
+            <input
+              type="text"
+              placeholder="Add to your list..."
+              id="new-todo"
+              data-new-todo-input
+            />
+            <button
+              type="submit"
+              title="Click this or press enter to submit new todo"
+            >
+              <span class="material-icons enter-arrow"
+                >subdirectory_arrow_left</span
+              >
+            </button>
+          </form>
+        </div>
+        <!-- Todo List -->
+        <ul class="todo-list" data-lists></ul>
+
+        <!-- Clear Todo List -->
+        <div class="clear-todos">
+          <button type="button">Clear all completed</button>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
