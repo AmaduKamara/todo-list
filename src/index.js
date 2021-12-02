@@ -44,7 +44,7 @@ const handleRender = () => {
         <input type="checkbox" checked class="check-box" />
       </div>
       <div class="view">
-        <p class="todo-desc linethrough">${todo.description}</p>
+        <input class="todo-desc linethrough" value="${todo.description}" />
       </div>
       <span class="material-icons move-icon">more_vert</span>
     `;
@@ -54,7 +54,7 @@ const handleRender = () => {
         <input type="checkbox" class="check-box" />
       </div>
       <div class="view">
-        <p class="todo-desc">${todo.description}</p>
+        <input class="todo-desc" value="${todo.description}"/>
       </div>
       <span class="material-icons move-icon">more_vert</span>
     `;
