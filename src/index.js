@@ -1,6 +1,7 @@
 import './main.css';
 import clearListContainer from './utils/clear-container.js';
 import checkAndUncheckTodo from './utils/check-uncheck-todo.js';
+import clearAllCompletedTodos from './utils/clear-all-completed-todos.js';
 
 // Get HTML elements
 const listContainer = document.querySelector('[data-lists]');
@@ -80,12 +81,7 @@ newTodoForm.addEventListener('submit', (e) => {
 
 // Clear all completed todos upon click
 clearButton.addEventListener('click', () => {
-  let localArr = JSON.parse(localStorage.getItem(localStorageTodos));
-
-  const pendingTodos = localArr.filter((todo) => todo.completed === false);
-
-  console.log(pendingTodos);
-  localStorage.setItem(localStorageTodos, JSON.stringify(pendingTodos));
+  clearAllCompletedTodos(localStorageTodos);
   handleRender();
 });
 
