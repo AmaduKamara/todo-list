@@ -22,7 +22,7 @@ I achieved that by using JavaScript arrays and objects. I also dynamically modif
 
 ## Live Demo
 
-<a href="https://amadukamara.github.io/todo-list/dist/">To-do List</a>
+<a href="https://amadukamara.github.io/todo-list/dist">To-do List</a>
 
 ## Getting Started
 
