@@ -3,6 +3,7 @@ import clearListContainer from './utils/clear-container.js';
 import checkAndUncheckTodo from './utils/check-uncheck-todo.js';
 import clearAllCompletedTodos from './utils/clear-all-completed-todos.js';
 import editTodo from './utils/edit.js';
+// import deleteTodo from './utils/delete-todo.js';
 
 // Get HTML elements
 const listContainer = document.querySelector('[data-lists]');
@@ -23,10 +24,12 @@ const createList = (name) => ({
   index: todos.length + 1,
 });
 
+// Save todo to localStorage
 const save = () => {
   localStorage.setItem(localStorageTodos, JSON.stringify(todos));
 };
 
+// Render todos to the browser
 const handleRender = () => {
   clearListContainer(listContainer);
 
@@ -56,17 +59,37 @@ const handleRender = () => {
       </div>
       <div class="view">
         <input class="todo-desc" value="${todo.description}" data-edited-todo id="${todo.id}"/>
+        <button type="button" class="delete-todo" data-id="${todo.id}"/>
+          <span class="material-icons">delete</span>
+        </button>
       </div>
       <span class="material-icons move-icon">more_vert</span>
     `;
     }
     listContainer.appendChild(listElement);
   });
+
   checkAndUncheckTodo(todos, localStorageTodos);
 
   editTodo(localStorageTodos);
+
+  // const foundTodo = todo.previousElementSibling.id;
+
+  document.querySelectorAll('.delete-todo').forEach((todo) => {
+    todo.addEventListener('click', (e) => {
+      const todos = JSON.parse(localStorage.getItem(localStorageTodos));
+      // const singleTodo = todos.find((todo) => todo.id === e.target.parentNode.dataset.id);
+
+      const filtered = todos.filter(
+        (todo) => todo.id !== e.target.parentNode.dataset.id
+      );
+      localStorage.setItem(localStorageTodos, JSON.stringify(filtered));
+      e.target.closest('ul>li').remove();
+    });
+  });
 };
 
+// Save and render todo
 const handleSaveAndRender = () => {
   save();
   handleRender();
