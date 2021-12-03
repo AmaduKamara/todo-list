@@ -6,7 +6,7 @@ I achieved that by using JavaScript arrays and objects. I also dynamically modif
 
 ## App Screenshot
 
-<img src="./src/Todo-List.png">
+![image](https://user-images.githubusercontent.com/50941074/144613726-540239b7-5aab-4bf9-8646-9cc4fe6b7633.png)
 
 ## Built With
 
