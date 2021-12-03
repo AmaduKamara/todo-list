@@ -3,7 +3,6 @@ import clearListContainer from './utils/clear-container.js';
 import checkAndUncheckTodo from './utils/check-uncheck-todo.js';
 import clearAllCompletedTodos from './utils/clear-all-completed-todos.js';
 import editTodo from './utils/edit.js';
-// import deleteTodo from './utils/delete-todo.js';
 
 // Get HTML elements
 const listContainer = document.querySelector('[data-lists]');
