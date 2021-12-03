@@ -73,13 +73,10 @@ const handleRender = () => {
 
   editTodo(localStorageTodos);
 
-  // const foundTodo = todo.previousElementSibling.id;
-
+  // Delete a single todo
   document.querySelectorAll('.delete-todo').forEach((todo) => {
     todo.addEventListener('click', (e) => {
       const todos = JSON.parse(localStorage.getItem(localStorageTodos));
-      // const singleTodo = todos.find((todo) => todo.id === e.target.parentNode.dataset.id);
-
       const filtered = todos.filter(
         (todo) => todo.id !== e.target.parentNode.dataset.id
       );

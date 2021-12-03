@@ -92,6 +92,13 @@ form input {
   padding-left: 5px;
 }
 
+.view input {
+  color: #000;
+  border: none;
+  padding: 18px;
+  width: 100%;
+}
+
 form input:focus {
   outline: none;
 }
@@ -121,13 +128,6 @@ form button[type='submit'] {
   margin-left: 15px;
   text-align: left;
   display: flex;
-}
-
-.view input {
-  color: #000;
-  border: none;
-  padding: 18px;
-  width: 100%;
 }
 
 .view input:focus {
