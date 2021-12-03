@@ -92,6 +92,13 @@ form input {
   padding-left: 5px;
 }
 
+.view input {
+  color: #000;
+  border: none;
+  padding: 18px;
+  width: 100%;
+}
+
 form input:focus {
   outline: none;
 }
@@ -113,18 +120,22 @@ form button[type='submit'] {
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #d8d8d8;
-  padding: 15px 0;
-  padding: 15px;
+  padding: 0 15px;
 }
 
 .view {
   width: 90%;
   margin-left: 15px;
   text-align: left;
+  display: flex;
 }
 
-.view p {
-  color: #000;
+.view input:focus {
+  outline: none;
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-color: #c0e6fb;
 }
 
 .clear-todos {
@@ -153,4 +164,17 @@ form button[type='submit'] {
 
 .linethrough {
   text-decoration: line-through;
+  color: #358fe4 !important;
+}
+
+.delete-todo {
+  background: none;
+  border: none;
+  color: #525151;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.delete-todo:hover {
+  color: #df564a;
 }

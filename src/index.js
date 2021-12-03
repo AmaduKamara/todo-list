@@ -1,13 +1,19 @@
 import './main.css';
 import clearListContainer from './utils/clear-container.js';
 import checkAndUncheckTodo from './utils/check-uncheck-todo.js';
+import clearAllCompletedTodos from './utils/clear-all-completed-todos.js';
+import editTodo from './utils/edit.js';
 
+// Get HTML elements
 const listContainer = document.querySelector('[data-lists]');
 const newTodoForm = document.querySelector('[data-new-todo-form]');
 const newTodoInput = document.querySelector('[data-new-todo-input]');
 
-const localStorageTodos = 'todo.lists';
+// Get clear all completed button
+const clearButton = document.querySelector('[data-clear-all]');
 
+// Local storage data
+const localStorageTodos = 'todo.lists';
 const todos = JSON.parse(localStorage.getItem(localStorageTodos)) || [];
 
 const createList = (name) => ({
@@ -17,12 +23,16 @@ const createList = (name) => ({
   index: todos.length + 1,
 });
 
+// Save todo to localStorage
 const save = () => {
   localStorage.setItem(localStorageTodos, JSON.stringify(todos));
 };
 
+// Render todos to the browser
 const handleRender = () => {
   clearListContainer(listContainer);
+
+  const todos = JSON.parse(localStorage.getItem(localStorageTodos)) || [];
 
   // Looping through the list
   todos.forEach((todo) => {
@@ -37,7 +47,7 @@ const handleRender = () => {
         <input type="checkbox" checked class="check-box" />
       </div>
       <div class="view">
-        <p class="todo-desc linethrough">${todo.description}</p>
+        <input class="todo-desc linethrough" value="${todo.description}" data-edited-todo id="${todo.id}"/>
       </div>
       <span class="material-icons move-icon">more_vert</span>
     `;
@@ -47,16 +57,33 @@ const handleRender = () => {
         <input type="checkbox" class="check-box" />
       </div>
       <div class="view">
-        <p class="todo-desc">${todo.description}</p>
+        <input class="todo-desc" value="${todo.description}" data-edited-todo id="${todo.id}"/>
+        <button type="button" class="delete-todo" data-id="${todo.id}"/>
+          <span class="material-icons">delete</span>
+        </button>
       </div>
       <span class="material-icons move-icon">more_vert</span>
     `;
     }
     listContainer.appendChild(listElement);
   });
+
   checkAndUncheckTodo(todos, localStorageTodos);
+
+  editTodo(localStorageTodos);
+
+  // Delete a single todo
+  document.querySelectorAll('.delete-todo').forEach((todo) => {
+    todo.addEventListener('click', (e) => {
+      const todos = JSON.parse(localStorage.getItem(localStorageTodos));
+      const filtered = todos.filter((todo) => todo.id !== e.target.parentNode.dataset.id);
+      localStorage.setItem(localStorageTodos, JSON.stringify(filtered));
+      e.target.closest('ul>li').remove();
+    });
+  });
 };
 
+// Save and render todo
 const handleSaveAndRender = () => {
   save();
   handleRender();
@@ -70,6 +97,12 @@ newTodoForm.addEventListener('submit', (e) => {
   newTodoInput.value = null; // Reset the input field
   todos.push(list); // add the list to the todos array
   handleSaveAndRender();
+});
+
+// Clear all completed todos upon click
+clearButton.addEventListener('click', () => {
+  clearAllCompletedTodos(localStorageTodos);
+  handleRender();
 });
 
 handleRender();
