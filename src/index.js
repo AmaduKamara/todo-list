@@ -77,9 +77,7 @@ const handleRender = () => {
   document.querySelectorAll('.delete-todo').forEach((todo) => {
     todo.addEventListener('click', (e) => {
       const todos = JSON.parse(localStorage.getItem(localStorageTodos));
-      const filtered = todos.filter(
-        (todo) => todo.id !== e.target.parentNode.dataset.id
-      );
+      const filtered = todos.filter((todo) => todo.id !== e.target.parentNode.dataset.id);
       localStorage.setItem(localStorageTodos, JSON.stringify(filtered));
       e.target.closest('ul>li').remove();
     });
